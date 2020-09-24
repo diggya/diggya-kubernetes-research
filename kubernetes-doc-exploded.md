@@ -1,4 +1,6 @@
-# Kubernetes documentation
+# Kubernetes documentation exploded
+
+Some links marked
 
   * [Home](https://kubernetes.io/docs/home/)
     * [Available Documentation Versions](https://kubernetes.io/docs/home/supported-doc-versions/)
@@ -6,6 +8,26 @@
     * [Release notes and version skew](https://kubernetes.io/docs/setup/release/)
     * [Learning environment](https://kubernetes.io/docs/setup/learning-environment/)
     * [Production environment](https://kubernetes.io/docs/setup/production-environment/)
+      * [Container runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)
+        * Applicability
+        * Cgroup driver
+        * Docker
+        * CRI-O
+        * Containerd
+      * [Installing Kubernetes with deployment tools](https://kubernetes.io/docs/setup/production-environment/tools/)
+        * **[Bootstrapping clusters with kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/)**
+        * [Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
+        * [Installing Kubernetes with Kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)
+      * [Turnkey Cloud Solutions](https://kubernetes.io/docs/setup/production-environment/turnkey/)
+        * [Running Kubernetes on Alibaba Cloud](https://kubernetes.io/docs/setup/production-environment/turnkey/alibaba-cloud/)
+        * [Running Kubernetes on AWS EC2](https://kubernetes.io/docs/setup/production-environment/turnkey/aws/)
+        * [Running Kubernetes on Azure](https://kubernetes.io/docs/setup/production-environment/turnkey/azure/)
+        * [Running Kubernetes on Google Compute Engine](https://kubernetes.io/docs/setup/production-environment/turnkey/gce/)
+        * [Running Kubernetes on Multiple Clouds with IBM Cloud Private](https://kubernetes.io/docs/setup/production-environment/turnkey/icp/)
+        * [Running Kubernetes on Tencent Kubernetes Engine](https://kubernetes.io/docs/setup/production-environment/turnkey/tencent/)
+      * [Windows in Kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/)
+        * [Intro to Windows support in Kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/)
+        * [Guide for scheduling Windows containers in Kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/user-guide-windows-containers/)
     * [Best practices](https://kubernetes.io/docs/setup/best-practices/)
   * [Concepts](https://kubernetes.io/docs/concepts/)
     * [Overview](https://kubernetes.io/docs/concepts/overview/)
