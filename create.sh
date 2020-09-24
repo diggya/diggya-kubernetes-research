@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm create.log
+if [ -f create.log ] ; then rm create.log ; fi
 
 KUSER=$USER
 
@@ -41,7 +41,7 @@ kubectl apply -f \
 
 # https://stackoverflow.com/questions/52902337/unable-to-update-node-annotation-in-kubernetes
 # Allow to create services on control node
-kubectl taint node $NODE node-role.kubernetes.io/master:NoSchedule-
+kubectl taint node $NODE node-role.kubernetes.io/master-
 
 echo ==============================================================================================
 kubectl get nodes
