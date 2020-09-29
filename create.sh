@@ -9,7 +9,11 @@ NODE=`hostname`
 
 # An external address of a node.
 # This adress should be routable between all nodes
+if [ -z "$1" ] ; then
 ADVERTISE_ADDR=10.8.0.2
+else
+ADVERTISE_ADDR=$1
+fi
 
 # Network for pods. This network should not conflict with exising networks.
 # Each node takes /24 network
