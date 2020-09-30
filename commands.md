@@ -44,4 +44,3 @@ kubectl get deployments
 kubectl get pods
 kubectl describe pod <pod-name>
 ~~~~~~
-
