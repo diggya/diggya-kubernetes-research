@@ -10,7 +10,7 @@ NODE=`hostname`
 # An external address of a node.
 # This adress should be routable between all nodes
 if [ -z "$1" ] ; then
-ADVERTISE_ADDR=10.8.0.2
+ADVERTISE_ADDR=10.8.0.1
 else
 ADVERTISE_ADDR=$1
 fi
@@ -37,11 +37,6 @@ sudo chown $(id -u $KUSER):$(id -g $KUSER) $HOME/.kube/config
 
 # https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model
 # https://github.com/coreos/flannel
-
-# Install `flannel` as network interface
-kubectl apply -f \
-  https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml \
-  | tee -a create.log
 
 # https://stackoverflow.com/questions/52902337/unable-to-update-node-annotation-in-kubernetes
 # Allow to create services on control node

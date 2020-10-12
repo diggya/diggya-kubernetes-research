@@ -16,6 +16,7 @@ portainer will be configured to use GlusterFS storage
 
 ~~~~~~
 kubectl create -f 00-portainer.yaml
-kubectl create -f https://downloads.portainer.io/portainer-agent-k8s-nodeport.yaml
+kubectl label nodes mail master=true
+kubectl create -f 01-portainer-agent.yaml
 kubectl create -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml
 ~~~~~~
