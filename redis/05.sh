@@ -41,5 +41,6 @@ spec:
         - containerPort: 80
 ZZZ
 kubectl apply -f frontend-deployment.yaml
-kubectl get deployments
+#kubectl get deployments
+watch kubectl get -A pods
 
