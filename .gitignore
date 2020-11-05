@@ -1,3 +1,4 @@
 redis/*.yaml
 *.log
 *.html
+nextcloud/secret.yaml

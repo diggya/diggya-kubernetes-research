@@ -1,0 +1,68 @@
+# Deployment:
+#  kubectl create -f create-web.yaml
+#  cat create-web.yaml | ssh diggya.me kubectl create -f -
+#
+# https://hub.docker.com/r/zabbix/zabbix-web-nginx-mysql/
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zabbix
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zabbix-web
+  labels:
+    app: zabbix-web
+  namespace: zabbix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zabbix-web
+  template:
+    metadata:
+      labels:
+        app: zabbix-web
+    spec:
+      containers:
+        - name: zabbix-web
+          image: zabbix/zabbix-web-nginx-mysql
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ZBX_SERVER_HOST
+              value: "zabbix-server"
+            - name: ZBX_SERVER_PORT
+              value: "10051"
+            - name: DB_SERVER_HOST
+              value: "10.8.0.1"
+            - name: MYSQL_DATABASE
+              value: "zbx"
+            - name: MYSQL_USER
+              value: "zbx"
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: zbx-secrets
+                  key: mysql-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zabbix-web
+  labels:
+    app: zabbix-web
+  namespace: zabbix
+spec:
+  type: NodePort
+  selector:
+    app: zabbix-web
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      name: zabbix-web
+      nodePort: 30182
+

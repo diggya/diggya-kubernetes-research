@@ -15,6 +15,14 @@ subsets:
   - ip: 10.8.0.7
   ports:
   - port: 3801
+- addresses:
+  - ip: 10.8.0.8
+  ports:
+  - port: 3801
+- addresses:
+  - ip: 10.8.0.1
+  ports:
+  - port: 3801
 ---
 apiVersion: v1
 kind: Service

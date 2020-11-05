@@ -25,6 +25,7 @@ sudo kubeadm config images pull \
 
 # Create contol plane of a cluster
 sudo kubeadm init \
+  --control-plane-endpoint=10.9.0.1:6443
   --apiserver-advertise-address=$ADVERTISE_ADDR \
   --pod-network-cidr=$POD_NETWORK \
   | tee -a create.log

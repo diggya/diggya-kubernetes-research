@@ -65,8 +65,7 @@ spec:
     spec:
       serviceAccountName: portainer-sa-clusteradmin
       nodeSelector:
-#        master: "true"
-        x-role: master
+        node-role: master
       containers:
       - name: portainer-agent
         image: portainer/agent:latest

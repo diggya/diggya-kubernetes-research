@@ -22,8 +22,9 @@ kubeadm token list
 kubeadm token create
 
 # Creating hash for a token
-openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
- openssl dgst -sha256 -hex | sed 's/^.* //'
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | \
+openssl rsa -pubin -outform der 2>/dev/null | \
+openssl dgst -sha256 -hex | sed 's/^.* //'
 
 # Joining to a cluster
 kubeadm join --token <token> <control-plane-host>:6443 --discovery-token-ca-cert-hash <hash>

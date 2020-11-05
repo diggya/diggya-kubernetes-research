@@ -16,12 +16,18 @@
 ## password should be base64 encoded
 #  root-password: c3VwZXItc2VjcmV0LXBhc3N3b3Jk
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: phpmyadmin
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: phpmyadmin
   labels:
     app: phpmyadmin
+  namespace: phpmyadmin
 spec:
   replicas: 1
   selector:
@@ -38,6 +44,8 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: PMA_ABSOLUTE_URI
+              value: "https://diggya.me/pma/"
             - name: PMA_HOSTS
               value: "10.8.0.1,10.8.0.7"
             - name: PMA_PORT
@@ -52,6 +60,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: phpmyadmin
+  namespace: phpmyadmin
 spec:
   type: NodePort
   selector:

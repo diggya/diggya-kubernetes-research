@@ -1,0 +1,17 @@
+digraph {
+  graph [ color=white fontcolor=white ];
+  node [ color=white fontcolor=white ];
+  edge [ color=white fontcolor=white ];
+  bgcolor="#00000000";
+  nfs -> volume;
+  volume -> mysql;
+  volume -> zabbix;
+  docker -> mysql;
+  docker -> zabbix;
+  mysql -> zabbix_server;
+  nfs -> zabbix_server;
+  mysql -> zabbix_web;
+  nfs -> zabbix_web;
+  zabbix_web -> zabbix;
+  zabbix_server -> zabbix;
+}
